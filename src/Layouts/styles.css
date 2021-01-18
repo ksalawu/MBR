@@ -1,0 +1,9 @@
+.mainLayout {
+ display: flex;
+ height: 100vh;
+}
+
+.rightPanel {
+ flex: auto;
+ padding: 60px   
+}
