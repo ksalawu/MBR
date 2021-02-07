@@ -1,0 +1,43 @@
+.about {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.about .lowerPanel {
+    flex-grow: 1;
+    display: flex;
+}
+
+.about .lowerPanel .left{
+    display: flex;
+    flex-direction: column-reverse;
+    flex: 1;
+}
+
+.about .lowerPanel .right{
+    height: 100%;
+    flex: 1;
+}
+
+.about .lowerPanel .right form{
+
+}
+
+.about .lowerPanel .right form .form-field-wrapper{
+    display: flex;
+    padding: 10px;
+}
+
+.about .lowerPanel .right form .form-field-wrapper span{
+    min-width: 200px;
+    display: inline-block;
+}
+
+.about .lowerPanel .right form .form-field-wrapper input,
+.about .lowerPanel .right form .form-field-wrapper textarea
+{
+    flex-grow: 1;
+    resize: none;
+    border: 1px solid black;
+}

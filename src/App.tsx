@@ -7,6 +7,8 @@ import {
   Route
 } from "react-router-dom";
 
+import { About } from '../src/Screens/About'
+
 function App() {
   return (
     <Router>
@@ -22,7 +24,7 @@ function App() {
             <div>SHOP</div>
           </Route>
           <Route path="/about">
-            <div>ABOUT</div>
+            <About/>
           </Route>
           <Route path="/">
             <div>TEST</div>
