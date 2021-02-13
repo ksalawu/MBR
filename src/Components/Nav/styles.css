@@ -3,12 +3,22 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 60px;
+    z-index: 1;
 }
 
 .nav a {
     padding-bottom: 10px;
+    text-decoration: none;
 }
 
 .nav .active {
     border-bottom: 1px solid black;
+}
+
+.nav.white a{
+    color: white;
+}
+
+.nav.white a.active{
+    border-bottom: 1px solid white;
 }

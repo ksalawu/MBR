@@ -1,0 +1,59 @@
+.schedule {
+    
+}
+
+.schedule .day {
+    padding-bottom: 25px;
+}
+
+.schedule .day .head {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.schedule .day .head .dayword{
+    font-size: 20px;
+}
+
+.schedule .day .head .date{
+    font-size: 22px;
+}
+
+.schedule .day .shows{
+
+}
+
+.schedule .day .shows .show{
+    border: 1.5px solid black;
+    margin-top: 15px;
+    padding: 10px;
+    height: 175px;
+    display: flex;
+}
+
+.schedule .day .shows .show .image{
+    flex: auto;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.schedule .day .shows .show .right{
+    width: calc(100% - 195px);
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.schedule .day .shows .show .right .name{
+
+}
+.schedule .day .shows .show .right .time{
+    font-size: 20px;
+}
+.schedule .day .shows .show .right .descr{
+
+}
+

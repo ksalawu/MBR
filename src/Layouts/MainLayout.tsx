@@ -7,7 +7,9 @@ export const MainLayout = ({children} : { children: React.ReactNode }) => {
         <LeftPanel />
         <div className="rightPanel">
             <Nav />
-            {children}
+            <div className="page">
+                {children}
+            </div>
         </div>
     </div>
 }

@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 
 import { About } from '../src/Screens/About'
+import { Home } from '../src/Screens/Home'
+import { Schedule } from '../src/Screens/Schedule'
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
       <MainLayout>
         <Switch>
           <Route path="/schedule">
-            <div>SCHEDULE</div>
+            <Schedule />
           </Route>
           <Route path="/residents">
             <div>RESIDENTS</div>
@@ -27,7 +29,7 @@ function App() {
             <About/>
           </Route>
           <Route path="/">
-            <div>TEST</div>
+            <Home/>
           </Route>
         </Switch>
       </MainLayout>
