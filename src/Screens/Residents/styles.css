@@ -1,0 +1,27 @@
+.residents {
+    display: flex;
+    height: 100%;
+
+}
+.residents .letters{
+    width: 10px;
+    height: 100%; 
+}
+
+.residents .letters a{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.residents .all{
+    flex-grow: 1;
+    height: 100%;
+    overflow: scroll;
+}
+
+.residents .all .page{
+    height: 500px;
+    background-color: red;
+    padding: 10px;
+    margin:10px;
+}

@@ -1,0 +1,50 @@
+.latest {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.latest .show {
+    flex: 0 30%;
+    margin-bottom: 2%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.latest .show:hover {
+    background-color: black;
+    color: white;
+}
+
+.latest .show .top{
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.latest .show .image{
+    width: 75px;
+    height: 75px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.latest .show:hover .image {
+    background-image: url('') !important;
+}
+
+.latest .show .right{
+    text-align: right;
+    flex-grow: 1;
+}
+
+.latest .show .right .tags{
+    font-size: 14px;
+}
+
+.latest .show .desc{
+    max-height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

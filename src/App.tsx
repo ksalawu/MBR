@@ -10,6 +10,8 @@ import {
 import { About } from '../src/Screens/About'
 import { Home } from '../src/Screens/Home'
 import { Schedule } from '../src/Screens/Schedule'
+import { Latest } from '../src/Screens/Latest'
+import { Residents } from '../src/Screens/Residents'
 
 function App() {
   return (
@@ -20,13 +22,16 @@ function App() {
             <Schedule />
           </Route>
           <Route path="/residents">
-            <div>RESIDENTS</div>
+            <Residents />
           </Route>
           <Route path="/shop">
             <div>SHOP</div>
           </Route>
           <Route path="/about">
             <About/>
+          </Route>
+          <Route path="/latest">
+            <Latest/>
           </Route>
           <Route path="/">
             <Home/>
