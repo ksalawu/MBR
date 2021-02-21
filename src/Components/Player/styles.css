@@ -1,0 +1,97 @@
+.player {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.player .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 10px;
+    transition: 0.5s 
+}
+
+.player .flashing {
+    animation: flashing 1s linear infinite;
+  }
+  
+  @keyframes flashing {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.player .MarqueeContent {
+    white-space: nowrap;
+}
+
+.player .playWrap {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.player .timeline {
+    height: 1px;
+    background-color: black;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+.player .timeline:before {
+    content:' ';
+    position: absolute;
+    width: 1px;
+    height: 11px;
+    left: 0;
+    top: -5px;
+    background-color: black;
+}
+
+.player .timeline:after {
+    content:' ';
+    position: absolute;
+    width: 1px;
+    height: 11px;
+    right: 0;
+    top: -5px;
+    background-color: black;
+}
+
+.player .timeline .marker {
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    left: 0;
+    top: -10px;
+    background-color: black;
+}
+
+.player .time {
+    
+}
+
+.player .watch {
+    border: 1px solid black;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.player .watch:hover {
+    color: white;
+    background-color: black;
+}
+
+.player .next {
+    padding-top: 10px;
+}
