@@ -6,6 +6,7 @@
 .residents .letters{
     width: 10px;
     height: 100%; 
+    padding-right: 20px;
 }
 
 .residents .letters a{
@@ -13,15 +14,50 @@
     cursor: pointer;
 }
 
+.residents .letters a:hover{
+    color: white;
+    background-color: black;
+}
+
 .residents .all{
     flex-grow: 1;
     height: 100%;
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
-.residents .all .page{
-    height: 500px;
+.residents .all .letterPage{
+    /* height: 500px;
     background-color: red;
     padding: 10px;
-    margin:10px;
+    margin:10px; */
+}
+
+.residents .all .letterPage .show{
+    border: 1.5px solid black;
+    margin-top: 15px;
+    padding: 10px;
+    height: 175px;
+    display: flex;
+}
+
+.residents .all .letterPage .show h5{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.residents .all .letterPage .show .image{
+    flex: auto;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.residents .all .letterPage .show .right{
+    width: calc(100% - 195px);
+    padding-left: 10px;
+    overflow: hidden;
 }
