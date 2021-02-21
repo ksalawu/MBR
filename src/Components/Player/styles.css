@@ -30,8 +30,14 @@
 }
 
 .player .playWrap {
+    display: inline-block;
     padding: 10px;
+    margin: 10px auto;
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 15px;
+    height: 15px;
 }
 
 .player .timeline {

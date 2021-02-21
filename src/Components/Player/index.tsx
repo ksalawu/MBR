@@ -20,8 +20,8 @@ export const Player = () => {
             setPlaying(!playing)
             }}
             className="playWrap"
+            style={{backgroundImage: `url('./${ playing ? 'play' : 'pause'}.svg')`}}
         >
-            {playing ? 'Playing' : "Paused"}
         </div>
         <div className="timeline">
             <div className="marker" style={{left: `${playPercentage}%`}}/>
