@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MainLayout } from './Layouts/MainLayout'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -15,7 +15,7 @@ import { Residents } from '../src/Screens/Residents'
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <MainLayout>
         <Switch>
           <Route path="/schedule">

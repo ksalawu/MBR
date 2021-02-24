@@ -12,7 +12,7 @@ export const About = () => {
         <div className="lowerPanel">
             <div className="left">
                 <div>
-                    <div>info@usicboxradio.co.uk</div>
+                    <div>info@musicboxradio.co.uk</div>
                     <div>+447497780309 studio line</div>
                     <div>(WhatsApp)</div>
                 </div>
@@ -86,7 +86,7 @@ export const About = () => {
                                 />
                             </div>
                             <div className="form-field-wrapper">
-                                <span><a href={`mailto:info@usicboxradio.co.uk?${
+                                <span><a href={`mailto:info@musicboxradio.co.uk?${
                                     "subject="+values.subject
                                 }&${
                                     "body="+
