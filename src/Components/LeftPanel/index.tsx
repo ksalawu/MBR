@@ -9,7 +9,8 @@ import tune from './socials/tune.png'
 import twitter from './socials/twitter.png'
 import { NavLink } from "react-router-dom";
 
-export const LeftPanel = () => {
+export const LeftPanel = ({calendar}:{calendar?: any }) => {
+
     return <div className="leftPanel">
         <NavLink to="/">
             <div className="logo">

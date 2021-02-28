@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { MainLayout } from './Layouts/MainLayout'
 import {
@@ -14,9 +14,18 @@ import { Latest } from '../src/Screens/Latest'
 import { Residents } from '../src/Screens/Residents'
 
 function App() {
+  const [calendar, setCalendar] = useState<any>()
+
+  useEffect(() => {
+    const urlstring = `${process.env.REACT_APP_CALENDAR_URL}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+    fetch(urlstring)
+    .then(response => response.json())
+    .then(data => setCalendar(data))
+  }, [])
+
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <MainLayout>
+      <MainLayout calendar={calendar}>
         <Switch>
           <Route path="/schedule">
             <Schedule />
