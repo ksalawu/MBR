@@ -10,14 +10,14 @@ import twitter from './socials/twitter.png'
 import { NavLink } from "react-router-dom";
 
 export const LeftPanel = ({calendar}:{calendar?: any }) => {
-
+    
     return <div className="leftPanel">
         <NavLink to="/">
             <div className="logo">
                 <img src={Logo}/>
             </div>
         </NavLink>
-        <Player />
+        <Player calendar={calendar}/>
         <div className="socials">
             <div className="left">
                 <a href="">

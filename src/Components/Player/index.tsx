@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import Marquee from "react-smooth-marquee"
 import './styles.css';
 
-export const Player = () => {
+export const Player = ({calendar}:{calendar?: any }) => {
     const [playing, setPlaying] = useState(false);
     const [playPercentage, setPlayPercentage] = useState(30)
     const audioRef = useRef()
@@ -13,7 +13,9 @@ export const Player = () => {
         else audioRef.current.pause()
     }, [playing])
 
-
+    const currentShow = calendar && calendar.items[0]
+    const upNext = calendar && calendar.items[1]
+    
     return <div className="player">
         <audio src={process.env.REACT_APP_STREAM_URL} ref={audioRef}/>
         <p>
@@ -21,7 +23,7 @@ export const Player = () => {
             live now
         </p>
         <Marquee>
-            This is a long show title name
+            {currentShow?.summary}
         </Marquee>
         <div 
             onClick={() => {
@@ -35,15 +37,21 @@ export const Player = () => {
             <div className="marker" style={{left: `${playPercentage}%`}}/>
         </div>
         <div className="time">
-            1900 - 2000
+            {
+              currentShow && `${new Date(currentShow?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(currentShow?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`  
+            }
         </div>
         <a className="watch">
             Watch Live {'>'}
         </a>
         <div className="next">
             <div>up next:</div>
-            <div>Show Name</div>
-            <div>1900 - 2000</div>
+            <div>{upNext?.summary}</div>
+            <div>
+                {
+                    upNext && `${new Date(upNext?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(upNext?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`  
+                }
+            </div>
         </div>
     </div>
 }

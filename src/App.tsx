@@ -15,9 +15,10 @@ import { Residents } from '../src/Screens/Residents'
 
 function App() {
   const [calendar, setCalendar] = useState<any>()
+  let now = new Date()
 
   useEffect(() => {
-    const urlstring = `${process.env.REACT_APP_CALENDAR_URL}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+    const urlstring = `${process.env.REACT_APP_CALENDAR_URL}?key=${process.env.REACT_APP_GOOGLE_API_KEY}&timeMin=${now.toISOString()}&singleEvents=true&orderBy=startTime`
     fetch(urlstring)
     .then(response => response.json())
     .then(data => setCalendar(data))
@@ -28,7 +29,7 @@ function App() {
       <MainLayout calendar={calendar}>
         <Switch>
           <Route path="/schedule">
-            <Schedule />
+            <Schedule calendar={calendar}/>
           </Route>
           <Route path="/residents">
             <Residents />

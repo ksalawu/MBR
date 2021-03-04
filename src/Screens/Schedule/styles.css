@@ -45,6 +45,9 @@
     width: calc(100% - 195px);
     padding-left: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .schedule .day .shows .show .right .name{
