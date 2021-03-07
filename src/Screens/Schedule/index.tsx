@@ -28,7 +28,7 @@ export const Schedule = ({calendar}:{calendar?: any }) => {
 
     return <div className="schedule">
         {
-            shows.map((day: any) => <div className="day">
+            shows && shows.map((day: any) => <div className="day">
                     <div className="head">
                         <div className="dayword">{day.day}</div>
                         <div className="date">{day.date}</div>

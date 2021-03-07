@@ -2,6 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
 }
 
 .latest .show {
@@ -9,6 +13,11 @@
     margin-bottom: 2%;
     border: 1px solid black;
     padding: 10px;
+    min-height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 .latest .show:hover {
@@ -22,8 +31,8 @@
 }
 
 .latest .show .image{
-    width: 75px;
-    height: 75px;
+    min-width: 75px;
+    min-height: 75px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -31,8 +40,11 @@
 
 
 .latest .show:hover .image {
-    background-image: url('') !important;
+    background-image: url("./play.svg") !important;
+    filter: invert(100%);
+    background-size: 40%;
 }
+
 
 .latest .show .right{
     text-align: right;

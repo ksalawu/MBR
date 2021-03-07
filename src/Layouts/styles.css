@@ -12,7 +12,8 @@
 
 .page {
 	height: 100%;
-    overflow: scroll;
+	overflow: scroll;
+	position: relative;
 }
 
 a {

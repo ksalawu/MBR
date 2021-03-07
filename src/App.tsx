@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-
+import React, {useEffect, useState, useRef} from 'react';
+import ReactPlayer from 'react-player'
 import { MainLayout } from './Layouts/MainLayout'
 import {
   HashRouter as Router,
@@ -15,6 +15,8 @@ import { Residents } from '../src/Screens/Residents'
 
 function App() {
   const [calendar, setCalendar] = useState<any>()
+  const [playingShow, setPlayingShow] = useState<string>()
+  const mixcloudPlayerRef = useRef<any>()
   let now = new Date()
 
   useEffect(() => {
@@ -24,6 +26,10 @@ function App() {
     .then(data => setCalendar(data))
   }, [])
 
+
+  useEffect(() => {
+    // const internalPlayer = mixcloudPlayerRef.current?.getInternalPlayer()
+  }, [playingShow])
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <MainLayout calendar={calendar}>
@@ -41,12 +47,29 @@ function App() {
             <About/>
           </Route>
           <Route path="/latest">
-            <Latest/>
+            <Latest setPlayingShow={setPlayingShow}/>
           </Route>
           <Route path="/">
             <Home/>
           </Route>
         </Switch>
+        {playingShow && <div
+        className="mixcloudWrap">
+          <ReactPlayer
+          onReady={(p: any) => {
+            //WORK OUT PLAYER
+          }}
+          ref={mixcloudPlayerRef}
+          url={playingShow}
+          config={{
+            mixcloud: { 
+              options: {
+                mini: true,
+                light: true
+              }
+            }
+          }}
+        /></div>}
       </MainLayout>
     </Router> 
   );
