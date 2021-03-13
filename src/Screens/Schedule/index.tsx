@@ -1,5 +1,5 @@
 import './styles.css';
-const arrayOfWeekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+import days from '../../Util/days'
 export const Schedule = ({calendar}:{calendar?: any }) => {
     const formattedShows = calendar && calendar?.items.reduce((acc: any[], cur: any) => {
         const start = new Date(cur.start.dateTime)
@@ -8,7 +8,7 @@ export const Schedule = ({calendar}:{calendar?: any }) => {
           // @ts-ignore
         if (!acc[date]) acc[date] = {
             // @ts-ignore
-            day:arrayOfWeekdays[start.getDay()].toLowerCase(),
+            day:days[start.getDay()].toLowerCase(),
             date:date,
             dateObject: start,
             shows: []
