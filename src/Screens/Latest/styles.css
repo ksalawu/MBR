@@ -13,11 +13,23 @@
     margin-bottom: 2%;
     border: 1px solid black;
     padding: 10px;
-    min-height: 175px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 1440px) {
+    .latest .show {
+        flex: 0 20%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .latest .show {
+        flex: 0 45%;
+    }
 }
 
 .latest .show:hover {
@@ -33,6 +45,7 @@
 .latest .show .image{
     min-width: 75px;
     min-height: 75px;
+    height: 75px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

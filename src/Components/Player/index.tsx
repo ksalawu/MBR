@@ -1,13 +1,13 @@
 // @ts-nocheck
 import { useState, useRef, useEffect } from 'react'
-import Marquee from "react-smooth-marquee"
+import Marquee from "react-fast-marquee";
 import './styles.css';
 
 export const Player = ({calendar}:{calendar?: any }) => {
     const [playing, setPlaying] = useState(false);
     const [playPercentage, setPlayPercentage] = useState(30)
     const audioRef = useRef()
-
+    
     useEffect(() => {
         if (playing) audioRef.current.play()
         else audioRef.current.pause()
@@ -22,9 +22,17 @@ export const Player = ({calendar}:{calendar?: any }) => {
             <div className="circle flashing" style={{backgroundColor:'red'}}/>
             live now
         </p>
-        <Marquee>
-            {currentShow?.summary}
-        </Marquee>
+        <div className="marquee-wrap">
+            <Marquee
+                speed={10}
+                gradient={false}
+                pauseOnHover
+                className="marquee-content"
+            >
+                {currentShow?.summary}
+            </Marquee>
+        </div>
+
         <div 
             onClick={() => {
             setPlaying(!playing)

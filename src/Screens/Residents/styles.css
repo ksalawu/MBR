@@ -60,4 +60,14 @@
     width: calc(100% - 195px);
     padding-left: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+.residents .all .letterPage .show .right .descr{
+    overflow: scroll;
+    font-size: 14px;
+}
+
+

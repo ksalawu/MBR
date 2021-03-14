@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 
 export const About = () => {
     return <div className="about">
-        <h1>BE AND ASSET TO THE COLLECTIVE</h1>
+        <h1>BE AN ASSET TO THE COLLECTIVE</h1>
         <p> Music Box Radio is a collective of like minded souls with a unanimous love for all things music and entertainment, broadcasting live from the heart of London.</p>
         <p>Live shows are broadcast via this website, Sonos, the Tunein and radio.net mobile apps and on iTunes listed inside the eclectic directory.</p>
         <p>All shows are recorded and uploaded to our Mixcloud page so you never have to miss a show. <a href="www.google.com">Follow us here</a> for upload notifications:</p>

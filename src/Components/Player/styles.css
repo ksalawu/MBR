@@ -4,6 +4,17 @@
     text-align: center;
     overflow: hidden;
     padding: 20px;
+    height: auto;
+    flex: 1;
+}
+
+.player .marquee-wrap {
+    overflow: hidden;
+}
+
+.player .marquee-content {
+    white-space: nowrap;
+    width: 100%;
 }
 
 .player .circle {
@@ -100,4 +111,9 @@
 
 .player .next {
     padding-top: 10px;
+    height: auto;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -35,7 +35,7 @@
 
 .schedule .day .shows .show .image{
     flex: auto;
-    background-position: center;
+    background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -57,6 +57,7 @@
     font-size: 20px;
 }
 .schedule .day .shows .show .right .descr{
-
+    overflow: scroll;
+    font-size: 14px;
 }
 

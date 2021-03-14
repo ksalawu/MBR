@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import ReactPlayer from 'react-player'
+import Papa from 'papaparse'
 import { MainLayout } from './Layouts/MainLayout'
 import {
   HashRouter as Router,
@@ -16,6 +16,8 @@ import { Residents } from '../src/Screens/Residents'
 function App() {
   const [calendar, setCalendar] = useState<any>()
   const [playingShow, setPlayingShow] = useState<string>()
+  const [residents, setResidents] = useState<{[key:string]:string}[]>()
+
   let now = new Date()
 
   useEffect(() => {
@@ -23,6 +25,25 @@ function App() {
     fetch(urlstring)
     .then(response => response.json())
     .then(data => setCalendar(data))
+
+    process.env.REACT_APP_RESIDENTS_SHEET && fetch(process.env.REACT_APP_RESIDENTS_SHEET)
+    // @ts-ignore
+    .then(response => response.text())
+    .then(text => {
+      const data = Papa.parse(text).data
+      setResidents(
+        data.reduce((acc: any[], cur:any, index) => {
+          const keys = data[0] as string[]
+          if (index) {
+            const row = {} as {[key:string]:string}
+            keys.forEach((key, index) => row[key] = cur[index])
+            acc.push(row)
+          }
+          return acc
+        }, [] as any[])
+      )
+    })
+    
   }, [])
 
   return (
@@ -33,7 +54,7 @@ function App() {
             <Schedule calendar={calendar}/>
           </Route>
           <Route path="/residents">
-            <Residents />
+            <Residents residents={residents}/>
           </Route>
           <Route path="/shop">
             <div>SHOP</div>
