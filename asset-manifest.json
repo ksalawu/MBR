@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/MBR/static/css/main.2a26cb8a.chunk.css",
-    "main.js": "/MBR/static/js/main.26ec7a16.chunk.js",
-    "main.js.map": "/MBR/static/js/main.26ec7a16.chunk.js.map",
-    "runtime-main.js": "/MBR/static/js/runtime-main.d0448666.js",
-    "runtime-main.js.map": "/MBR/static/js/runtime-main.d0448666.js.map",
-    "static/js/2.d6b3c09e.chunk.js": "/MBR/static/js/2.d6b3c09e.chunk.js",
-    "static/js/2.d6b3c09e.chunk.js.map": "/MBR/static/js/2.d6b3c09e.chunk.js.map",
-    "static/js/3.efe5a76d.chunk.js": "/MBR/static/js/3.efe5a76d.chunk.js",
-    "static/js/3.efe5a76d.chunk.js.map": "/MBR/static/js/3.efe5a76d.chunk.js.map",
-    "index.html": "/MBR/index.html",
-    "static/css/main.2a26cb8a.chunk.css.map": "/MBR/static/css/main.2a26cb8a.chunk.css.map",
-    "static/js/2.d6b3c09e.chunk.js.LICENSE.txt": "/MBR/static/js/2.d6b3c09e.chunk.js.LICENSE.txt",
-    "static/media/insta.bd3af281.png": "/MBR/static/media/insta.bd3af281.png",
-    "static/media/mix.5304fbba.png": "/MBR/static/media/mix.5304fbba.png",
-    "static/media/twitter.c145b65a.png": "/MBR/static/media/twitter.c145b65a.png"
+    "main.css": "/static/css/main.363fc968.chunk.css",
+    "main.js": "/static/js/main.d7c53c71.chunk.js",
+    "main.js.map": "/static/js/main.d7c53c71.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6c9a7a7c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6c9a7a7c.js.map",
+    "static/js/2.41d8665c.chunk.js": "/static/js/2.41d8665c.chunk.js",
+    "static/js/2.41d8665c.chunk.js.map": "/static/js/2.41d8665c.chunk.js.map",
+    "static/js/3.3e75450c.chunk.js": "/static/js/3.3e75450c.chunk.js",
+    "static/js/3.3e75450c.chunk.js.map": "/static/js/3.3e75450c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.363fc968.chunk.css.map": "/static/css/main.363fc968.chunk.css.map",
+    "static/js/2.41d8665c.chunk.js.LICENSE.txt": "/static/js/2.41d8665c.chunk.js.LICENSE.txt",
+    "static/media/insta.bd3af281.png": "/static/media/insta.bd3af281.png",
+    "static/media/mix.5304fbba.png": "/static/media/mix.5304fbba.png",
+    "static/media/styles.css": "/static/media/play.a79af899.svg",
+    "static/media/twitter.c145b65a.png": "/static/media/twitter.c145b65a.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.d0448666.js",
-    "static/js/2.d6b3c09e.chunk.js",
-    "static/css/main.2a26cb8a.chunk.css",
-    "static/js/main.26ec7a16.chunk.js"
+    "static/js/runtime-main.6c9a7a7c.js",
+    "static/js/2.41d8665c.chunk.js",
+    "static/css/main.363fc968.chunk.css",
+    "static/js/main.d7c53c71.chunk.js"
   ]
 }
