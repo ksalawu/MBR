@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction} from 'react'
 import { Player } from '../Player'
 import './styles.css';
 import Logo from './MBR.png'
@@ -9,7 +10,7 @@ import tune from './socials/tune.png'
 import twitter from './socials/twitter.png'
 import { NavLink } from "react-router-dom";
 
-export const LeftPanel = ({calendar}:{calendar?: any }) => {
+export const LeftPanel = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPlaying}:{calendar?: any, getMixcloudPlayer?: () => Promise<any>, playerPlaying?: boolean, setPlayerPlaying? : Dispatch<SetStateAction<boolean | undefined>> }) => {
     
     return <div className="leftPanel">
         <NavLink to="/">
@@ -17,7 +18,12 @@ export const LeftPanel = ({calendar}:{calendar?: any }) => {
                 <img src={Logo}/>
             </div>
         </NavLink>
-        <Player calendar={calendar}/>
+        <Player 
+            calendar={calendar}
+            getMixcloudPlayer={getMixcloudPlayer}
+            playerPlaying={playerPlaying}
+            setPlayerPlaying={setPlayerPlaying}
+        />
         <div className="socials">
             <div className="left">
                 <a href="">

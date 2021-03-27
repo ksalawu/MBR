@@ -3,15 +3,24 @@ import { useState, useRef, useEffect } from 'react'
 import Marquee from "react-fast-marquee";
 import './styles.css';
 
-export const Player = ({calendar}:{calendar?: any }) => {
+export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPlaying}:{calendar?: any, getMixcloudPlayer?: () => Promise<any>, playerPlaying?: boolean, setPlayerPlaying? : Dispatch<SetStateAction<boolean | undefined>> }) => {
     const [playing, setPlaying] = useState(false);
     const [playPercentage, setPlayPercentage] = useState(30)
     const audioRef = useRef()
     
     useEffect(() => {
-        if (playing) audioRef.current.play()
+        if (playing) {
+            setPlayerPlaying(true)
+            getMixcloudPlayer().then((p: any) => p.pause())
+            audioRef.current.play()
+        }
         else audioRef.current.pause()
     }, [playing])
+
+    useEffect(() => {
+        console.log('playerPlaying', playerPlaying)
+        setPlaying(playerPlaying)
+    }, [playerPlaying])
 
     const currentShow = calendar && calendar.items[0]
     const upNext = calendar && calendar.items[1]

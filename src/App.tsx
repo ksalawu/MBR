@@ -16,9 +16,15 @@ import { Residents } from '../src/Screens/Residents'
 function App() {
   const [calendar, setCalendar] = useState<any>()
   const [playingShow, setPlayingShow] = useState<string>()
+  const [playerPlaying, setPlayerPlaying] = useState<boolean | undefined>()
   const [residents, setResidents] = useState<{[key:string]:string}[]>()
-
   let now = new Date()
+
+  const getMixcloudPlayer = (): Promise<any> => {
+    // @ts-ignore
+    const mx = window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget"))
+    return mx.ready
+  }
 
   useEffect(() => {
     const urlstring = `${process.env.REACT_APP_CALENDAR_URL}?key=${process.env.REACT_APP_GOOGLE_API_KEY}&timeMin=${now.toISOString()}&singleEvents=true&orderBy=startTime`
@@ -43,12 +49,24 @@ function App() {
         }, [] as any[])
       )
     })
-    
   }, [])
+
+  useEffect(() => {
+    // @ts-ignore
+    if (playingShow ) {
+      setPlayerPlaying(false)
+      getMixcloudPlayer().then((p: any) => p.load(playingShow, true))
+    }  
+  }, [playingShow])
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <MainLayout calendar={calendar}>
+      <MainLayout 
+        calendar={calendar}
+        getMixcloudPlayer={getMixcloudPlayer}
+        playerPlaying={playerPlaying}
+        setPlayerPlaying={setPlayerPlaying}
+      >
         <Switch>
           <Route path="/schedule">
             <Schedule calendar={calendar}/>
@@ -69,23 +87,17 @@ function App() {
             <Home/>
           </Route>
         </Switch>
-        {playingShow && <div
-        className="mixcloudWrap">
+        <div className="mixcloudWrap">
           <iframe
+            style={{display: playingShow ? undefined : 'none'}}
             id="mixcloud-widget"
-            onLoad={() => {
-              // @ts-ignore
-              window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).ready.then((p) => {
-                p.play()
-                console.log(p.play)
-              })
-            }}
+            allow="autoplay"
             width="100%"
             height="60"
-            src={`https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=${encodeURIComponent(playingShow)}`}
+            src={`https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=${encodeURIComponent('/MusicBoxRadioUK/the-mbr-breakfast-show-friday-26th-march-2021/')}?autoPlay=true`}
             frameBorder="0" 
           />
-        </div>}
+        </div>
       </MainLayout>
     </Router> 
   );
