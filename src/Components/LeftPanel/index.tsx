@@ -9,6 +9,7 @@ import mix from './socials/mix.png'
 import tune from './socials/tune.png'
 import twitter from './socials/twitter.png'
 import { NavLink } from "react-router-dom";
+import ReactGA from 'react-ga'
 
 export const LeftPanel = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPlaying}:{calendar?: any, getMixcloudPlayer?: () => Promise<any>, playerPlaying?: boolean, setPlayerPlaying? : Dispatch<SetStateAction<boolean | undefined>> }) => {
     
@@ -26,23 +27,23 @@ export const LeftPanel = ({calendar, getMixcloudPlayer, playerPlaying, setPlayer
         />
         <div className="socials">
             <div className="left">
-                <a href="">
+                <ReactGA.OutboundLink to={process.env.REACT_APP_MIXCLOUD_LINK!} target="_blank" eventLabel="social-click-mix">
                     <img src={mix}/>
-                </a>
-                <a href="">
+                </ReactGA.OutboundLink>
+                <ReactGA.OutboundLink to={process.env.REACT_APP_TUNEIN_LINK!} target="_blank" eventLabel="social-click-tune">
                     <img src={tune}/>
-                </a>
+                </ReactGA.OutboundLink>
             </div>
             <div className="right">
-                <a href="">
+                <ReactGA.OutboundLink to={process.env.REACT_APP_TWITTER_LINK!} target="_blank" eventLabel="social-click-twitter">
                     <img src={twitter}/>
-                </a>
-                <a href="">
+                </ReactGA.OutboundLink>
+                <ReactGA.OutboundLink to={process.env.REACT_APP_FACEBOOK_LINK!} target="_blank" eventLabel="social-click-fb">
                     <img src={fb}/>
-                </a>
-                <a href="">
+                </ReactGA.OutboundLink>
+                <ReactGA.OutboundLink to={process.env.REACT_APP_MIXCLOUD_LINK!} target="_blank" eventLabel="social-click-insta">
                     <img src={insta}/>
-                </a>
+                </ReactGA.OutboundLink>
             </div>
         </div>
     </div>

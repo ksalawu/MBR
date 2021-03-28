@@ -1,11 +1,14 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Papa from 'papaparse'
+import ReactGA from 'react-ga'
+
 import { MainLayout } from './Layouts/MainLayout'
 import {
   HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 
 import { About } from '../src/Screens/About'
 import { Home } from '../src/Screens/Home'
@@ -27,6 +30,16 @@ function App() {
   }
 
   useEffect(() => {
+    const trackingId = "G-YS1BSHZS20"; // Replace with your Google Analytics tracking ID
+    ReactGA.initialize(trackingId);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    var history = createBrowserHistory();
+    history.listen((location) => {
+      //@ts-ignore
+      window.ga('set', 'page', location.pathname + location.search);
+      //@ts-ignore
+      window.ga('send', 'pageview');
+    });
     const urlstring = `${process.env.REACT_APP_CALENDAR_URL}?key=${process.env.REACT_APP_GOOGLE_API_KEY}&timeMin=${now.toISOString()}&singleEvents=true&orderBy=startTime`
     fetch(urlstring)
     .then(response => response.json())
