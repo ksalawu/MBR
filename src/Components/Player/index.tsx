@@ -18,7 +18,6 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
     }, [playing])
 
     useEffect(() => {
-        console.log('playerPlaying', playerPlaying)
         setPlaying(playerPlaying)
     }, [playerPlaying])
 
@@ -39,6 +38,7 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
                 className="marquee-content"
             >
                 {currentShow?.summary}
+                <div style={{width: 20, height: 20}}/>
             </Marquee>
         </div>
 
@@ -50,9 +50,9 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
             style={{backgroundImage: `url('./${ playing ? 'pause' : 'play'}.svg')`}}
         >
         </div>
-        <div className="timeline">
+        {/* <div className="timeline">
             <div className="marker" style={{left: `${playPercentage}%`}}/>
-        </div>
+        </div> */}
         <div className="time">
             {
               currentShow && `${new Date(currentShow?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(currentShow?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`  

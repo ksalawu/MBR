@@ -8,6 +8,13 @@
     flex-direction: column;
 }
 
+@media only screen and (max-width: 700px) {
+    .leftPanel {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
 .logo {
     height: 250px;
     border-bottom: 1px solid black;
@@ -17,7 +24,6 @@
 }
 
 .logo img {
-    width: 50%;
     height: 50%;
 }
 

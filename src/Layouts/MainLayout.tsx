@@ -4,6 +4,7 @@ import './styles.css';
 import { Nav } from '../Components/Nav'
 import { LeftPanel } from  '../Components/LeftPanel'
 export const MainLayout = ({children, calendar, getMixcloudPlayer, playerPlaying, setPlayerPlaying} : { children: React.ReactNode, calendar?: any, getMixcloudPlayer?: () => Promise<any>, playerPlaying?: boolean, setPlayerPlaying? : Dispatch<SetStateAction<boolean | undefined>> }) => {
+    
     return <div className="mainLayout">
         <LeftPanel 
             calendar={calendar}
