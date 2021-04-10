@@ -71,6 +71,9 @@
 
 .latest .show .right .tags{
     font-size: 14px;
+    line-height: 1.3em;
+    max-height: 3.9em;
+    overflow: hidden;
 }
 
 .latest .show .desc{
