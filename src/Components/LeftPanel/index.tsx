@@ -26,25 +26,25 @@ export const LeftPanel = ({calendar, getMixcloudPlayer, playerPlaying, setPlayer
             setPlayerPlaying={setPlayerPlaying}
         />
         <div className="socials">
-            <div className="left">
+            {/* <div className="left"> */}
                 <ReactGA.OutboundLink to={process.env.REACT_APP_MIXCLOUD_LINK!} target="_blank" eventLabel="social-click-mix">
                     <img src={mix}/>
                 </ReactGA.OutboundLink>
                 <ReactGA.OutboundLink to={process.env.REACT_APP_TUNEIN_LINK!} target="_blank" eventLabel="social-click-tune">
                     <img src={tune}/>
                 </ReactGA.OutboundLink>
-            </div>
-            <div className="right">
+            {/* </div>
+            <div className="right"> */}
                 <ReactGA.OutboundLink to={process.env.REACT_APP_TWITTER_LINK!} target="_blank" eventLabel="social-click-twitter">
                     <img src={twitter}/>
                 </ReactGA.OutboundLink>
                 <ReactGA.OutboundLink to={process.env.REACT_APP_FACEBOOK_LINK!} target="_blank" eventLabel="social-click-fb">
                     <img src={fb}/>
                 </ReactGA.OutboundLink>
-                <ReactGA.OutboundLink to={process.env.REACT_APP_MIXCLOUD_LINK!} target="_blank" eventLabel="social-click-insta">
+                <ReactGA.OutboundLink to={process.env.REACT_APP_INSTA_LINK!} target="_blank" eventLabel="social-click-insta">
                     <img src={insta}/>
                 </ReactGA.OutboundLink>
-            </div>
+            {/* </div> */}
         </div>
     </div>
 }

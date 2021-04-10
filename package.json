@@ -21,6 +21,7 @@
     "mixcloud": "^1.0.1",
     "papaparse": "^5.3.0",
     "react": "^17.0.1",
+    "react-animated-ellipsis": "^1.0.0",
     "react-dom": "^17.0.1",
     "react-fast-marquee": "^1.1.1",
     "react-ga": "^3.3.0",

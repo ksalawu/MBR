@@ -3,7 +3,7 @@ import './styles.css';
 export const Home = () => {
     return <div className="home">
         <video 
-            src='./video.mp4'
+            src='./videoHighRes.mp4'
             autoPlay
             controls={false}
             loop

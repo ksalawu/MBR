@@ -30,13 +30,13 @@ function App() {
   }
 
   useEffect(() => {
-    const trackingId = "G-YS1BSHZS20"; // Replace with your Google Analytics tracking ID
+    const trackingId = "UA-193152570-1";
     ReactGA.initialize(trackingId);
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.pageview(window.location.pathname + window.location.hash + window.location.search);
     var history = createBrowserHistory();
     history.listen((location) => {
       //@ts-ignore
-      window.ga('set', 'page', location.pathname + location.search);
+      window.ga('set', 'page', location.pathname + location.hash + location.search);
       //@ts-ignore
       window.ga('send', 'pageview');
     });

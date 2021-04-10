@@ -5,7 +5,6 @@ export const Schedule = ({calendar}:{calendar?: any }) => {
         const start = new Date(cur.start.dateTime)
         const end = new Date(cur.end.dateTime)
         const date = `${start.getDate()} - ${start.getMonth()+1} - ${start.getFullYear()}`
-        if (cur.summary === 'Mutual Trust') console.log(cur.attachments[0])
           // @ts-ignore
         if (!acc[date]) acc[date] = {
             // @ts-ignore

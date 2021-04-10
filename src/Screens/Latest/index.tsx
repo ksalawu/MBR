@@ -1,13 +1,17 @@
 import { useEffect, useState, Dispatch, SetStateAction } from 'react'
+import ReactGA from 'react-ga'
 import './styles.css';
 import months from '../../Util/months'
 export const Latest = ({setPlayingShow}:{setPlayingShow: Dispatch<SetStateAction<string | undefined>>}) => {
     const mixcloud = require('mixcloud');
     const [shows, setShows] = useState<any>()
     const [mixcloudObject, setMixcloudObject] = useState<any>()
+    const [loading, setLoading] =  useState(false)
     useEffect(() => {
+        setLoading(true)
         mixcloud.cloudcasts(process.env.REACT_APP_MIXCLOUD_PROFILE_NAME, { limit: 100 })
         .then((data: any) => {
+            setLoading(false)
             setMixcloudObject(data)
             const shows = data.results.map((show: any) => {
                 const splitName = show.name.split(' - ');
@@ -32,6 +36,9 @@ export const Latest = ({setPlayingShow}:{setPlayingShow: Dispatch<SetStateAction
             })
             setShows(shows)
         })
+        .catch(() => {
+            setLoading(false)
+        })
     }, [])
 
     return <div className="latest" onScroll={(e) => {
@@ -50,9 +57,17 @@ export const Latest = ({setPlayingShow}:{setPlayingShow: Dispatch<SetStateAction
             })
         }
     }}>
+        { loading && <div className="loading" />}
         {shows && shows?.map((show: any) => {
             return <div className="show" 
-            onClick={() => show?.key && setPlayingShow(show?.key)}
+            onClick={() => {
+                ReactGA.event({
+                    category: 'Click',
+                    action: 'Play From Latest',
+                    label: show.name
+                });
+                show?.key && setPlayingShow(show?.key)
+            }}
             >
                 <div className="top">
                     <div className="image" style={{backgroundImage: `url(${show.imageUrl})`}}/>

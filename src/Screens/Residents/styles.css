@@ -50,7 +50,7 @@
 
 .residents .all .letterPage .show .image{
     flex: auto;
-    background-position: center;
+    background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -62,6 +62,12 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.residents .all .letterPage .show .right .top{
+    overflow: hidden;
+    display: flex;
     justify-content: space-between;
 }
 

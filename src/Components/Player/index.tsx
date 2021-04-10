@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Marquee from "react-fast-marquee";
 import './styles.css';
+import ReactGA from 'react-ga'
 
 export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPlaying}:{calendar?: any, getMixcloudPlayer?: () => Promise<any>, playerPlaying?: boolean, setPlayerPlaying? : Dispatch<SetStateAction<boolean | undefined>> }) => {
     const [playing, setPlaying] = useState(false);
@@ -44,7 +45,12 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
 
         <div 
             onClick={() => {
-            setPlaying(!playing)
+                setPlaying(!playing)
+                ReactGA.event({
+                    category: 'Click',
+                    action: 'Play Live',
+                    label: currentShow?.summary
+                });
             }}
             className="playWrap"
             style={{backgroundImage: `url('./${ playing ? 'pause' : 'play'}.svg')`}}
@@ -58,9 +64,9 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
               currentShow && `${new Date(currentShow?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(currentShow?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`  
             }
         </div>
-        <a className="watch">
+        <ReactGA.OutboundLink className="watch" to={process.env.REACT_APP_WATCH_LINK} target="_blank" eventLabel={`watch-live-clickout`}>
             Watch Live {'>'}
-        </a>
+        </ReactGA.OutboundLink>
         <div className="next">
             <div>up next:</div>
             <div>{upNext?.summary}</div>
