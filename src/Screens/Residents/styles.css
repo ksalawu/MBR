@@ -74,6 +74,7 @@
 .residents .all .letterPage .show .right .descr{
     overflow: scroll;
     font-size: 14px;
+    max-height: 80%;
 }
 
 
