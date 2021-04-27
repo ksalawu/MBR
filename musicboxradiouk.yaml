@@ -1,0 +1,52 @@
+name: musicboxradiouk
+region: lon
+static_sites:
+- build_command: yarn build
+  environment_slug: node-js
+  envs:
+  - key: PUBLIC_URL
+    scope: BUILD_TIME
+    value: 
+  - key: REACT_APP_STREAM_URL
+    scope: BUILD_TIME
+    value: https://uk5.internet-radio.com/proxy/musicboxradio?mp=/stream
+  - key: REACT_APP_CALENDAR_URL
+    scope: BUILD_TIME
+    value: https://www.googleapis.com/calendar/v3/calendars/musicboxradiouk@gmail.com/events
+  - key: REACT_APP_GOOGLE_API_KEY
+    scope: BUILD_TIME
+    value: AIzaSyDqM9jBdINqYukKpx40SrnyD6daKfRjzyk
+  - key: REACT_APP_MIXCLOUD_PROFILE_NAME
+    scope: BUILD_TIME
+    value: MusicBoxRadioUK
+  - key: REACT_APP_RESIDENTS_SHEET
+    scope: BUILD_TIME
+    value: https://docs.google.com/spreadsheets/d/e/2PACX-1vSu_WI-yPavYENxqa6sgUZISNPAuwuKJbCyiV_MKYbPgYMtieuPP267N2OLs0VkR4oVPdDUFCFuOKQq/pub?output=csv
+  - key: REACT_APP_MIXCLOUD_LINK
+    scope: BUILD_TIME
+    value: https://www.mixcloud.com/MusicBoxRadioUK/
+  - key: REACT_APP_TUNEIN_LINK
+    scope: BUILD_TIME
+    value: http://tunein.com/radio/Music-Box-Radio-UK-s276932/
+  - key: REACT_APP_TWITTER_LINK
+    scope: BUILD_TIME
+    value: https://twitter.com/musicboxradiouk
+  - key: REACT_APP_FACEBOOK_LINK
+    scope: BUILD_TIME
+    value: https://www.facebook.com/musicboxradiouk/
+  - key: REACT_APP_INSTA_LINK
+    scope: BUILD_TIME
+    value: https://www.instagram.com/musicboxradiouk
+  - key: REACT_APP_SHOP_LINK
+    scope: BUILD_TIME
+    value: https://www.facebook.com/musicboxradiouk/shop/
+  - key: REACT_APP_WATCH_LINK
+    scope: BUILD_TIME
+    value: https://www.mixcloud.com/live/MusicBoxRadioUK/
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: ksalawu/MBR
+  name: musicboxradiouk
+  routes:
+  - path: /

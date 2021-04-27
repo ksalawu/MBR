@@ -2,25 +2,30 @@ import './styles.css';
 import days from '../../Util/days'
 export const Schedule = ({calendar}:{calendar?: any }) => {
     const formattedShows = calendar && calendar?.items.reduce((acc: any[], cur: any) => {
-        const start = new Date(cur.start.dateTime)
-        const end = new Date(cur.end.dateTime)
-        const date = `${start.getDate()} - ${start.getMonth()+1} - ${start.getFullYear()}`
-          // @ts-ignore
-        if (!acc[date]) acc[date] = {
+        if (cur.visibility === "private") return acc
+        try {
+            const start = new Date(cur.start.dateTime)
+            const end = new Date(cur.end.dateTime)
+            const date = `${start.getDate()} - ${start.getMonth()+1} - ${start.getFullYear()}`
             // @ts-ignore
-            day:days[start.getDay()].toLowerCase(),
-            date:date,
-            dateObject: start,
-            shows: []
+            if (!acc[date]) acc[date] = {
+                // @ts-ignore
+                day:days[start.getDay()].toLowerCase(),
+                date:date,
+                dateObject: start,
+                shows: []
+            }
+            // @ts-ignore
+            
+            acc[date].shows.push({
+                name:cur.summary,
+                description: cur.description,
+                imageUrl: cur.attachments ? `https://drive.google.com/uc?export=download&id=${cur.attachments[0].fileId}` : "./MBR.png",
+                time: `${new Date(cur?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(cur?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`
+            })
+        } catch (e) {
+            console.log(e, {cur})
         }
-          // @ts-ignore
-        
-        acc[date].shows.push({
-            name:cur.summary,
-            description: cur.description,
-            imageUrl: cur.attachments ? `https://drive.google.com/uc?export=download&id=${cur.attachments[0].fileId}` : "./MBR.png",
-            time: `${new Date(cur?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(cur?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`
-        })
         return acc
     }, {})
     // @ts-ignore
