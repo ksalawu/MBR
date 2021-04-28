@@ -1,12 +1,12 @@
 name: musicboxradiouk
-region: lon
+region: ams
 static_sites:
 - build_command: yarn build
   environment_slug: node-js
   envs:
   - key: PUBLIC_URL
     scope: BUILD_TIME
-    value: 
+    value: /
   - key: REACT_APP_STREAM_URL
     scope: BUILD_TIME
     value: https://uk5.internet-radio.com/proxy/musicboxradio?mp=/stream

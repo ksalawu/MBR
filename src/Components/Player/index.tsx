@@ -45,6 +45,7 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
 
         <div 
             onClick={() => {
+                if (!playing) audioRef.current.play()
                 setPlaying(!playing)
                 ReactGA.event({
                     category: 'Click',
