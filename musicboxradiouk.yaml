@@ -21,7 +21,7 @@ static_sites:
     value: MusicBoxRadioUK
   - key: REACT_APP_RESIDENTS_SHEET
     scope: BUILD_TIME
-    value: https://docs.google.com/spreadsheets/d/e/2PACX-1vSu_WI-yPavYENxqa6sgUZISNPAuwuKJbCyiV_MKYbPgYMtieuPP267N2OLs0VkR4oVPdDUFCFuOKQq/pub?output=csv
+    value: https://docs.google.com/spreadsheets/d/1IpH26P1N0d3cZXOC7dVKUKudY3vJbKvOjCeW5As2k_I/export?format=csv
   - key: REACT_APP_MIXCLOUD_LINK
     scope: BUILD_TIME
     value: https://www.mixcloud.com/MusicBoxRadioUK/
