@@ -68,6 +68,9 @@ export const Player = ({calendar, getMixcloudPlayer, playerPlaying, setPlayerPla
         <ReactGA.OutboundLink className="watch" to={process.env.REACT_APP_WATCH_LINK} target="_blank" eventLabel={`watch-live-clickout`}>
             Watch Live {'>'}
         </ReactGA.OutboundLink>
+        <div style={{padding: '10px'}}>
+            <a style={{backgroundColor: 'black', color: 'white', padding: '10px'}} href="https://ko-fi.com/musicboxradiouk" target="_blank">Donate!</a>
+        </div>
         <div className="next">
             <div>up next:</div>
             <div>{upNext?.summary}</div>
