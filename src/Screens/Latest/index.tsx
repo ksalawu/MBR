@@ -14,11 +14,19 @@ export const Latest = ({setPlayingShow}:{setPlayingShow: Dispatch<SetStateAction
             setLoading(false)
             setMixcloudObject(data)
             const shows = data.results.map((show: any) => {
-                const splitName = show.name.split(' - ');
-                const date = splitName[splitName.length-1].split(' ').filter((d:any) => !!d)
-                const day = date[1].replace(/\D/g,'')
-                const month = months.indexOf(date[2]) 
-                const year = date[3]
+                const splitName = show.name.split(' - ') || '';
+                let date, day, month, year;
+                try {
+                    date = splitName[splitName.length-1]?.split(' ')?.filter((d:any) => !!d) || ''
+                    day = date[1].replace(/\D/g,'') || 1
+                    month = months.indexOf(date[2])  || 1
+                    year = date[3] || 1
+                } catch {
+                    day = 1;
+                    month = 1;
+                    year = 1;
+                }
+
                 return {
                     key: show.key,
                     url: show.url,
@@ -36,7 +44,8 @@ export const Latest = ({setPlayingShow}:{setPlayingShow: Dispatch<SetStateAction
             })
             setShows(shows)
         })
-        .catch(() => {
+        .catch((e: Error) => {
+            console.log('error', e)
             setLoading(false)
         })
     }, [])
