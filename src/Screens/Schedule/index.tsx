@@ -20,7 +20,7 @@ export const Schedule = ({calendar}:{calendar?: any }) => {
             acc[date].shows.push({
                 name:cur.summary,
                 description: cur.description,
-                imageUrl: cur.attachments ? `https://drive.google.com/uc?export=download&id=${cur.attachments[0].fileId}` : "./MBR.png",
+                imageUrl: cur.attachments ? `https://drive.google.com/thumbnail?id=${cur.attachments[0].fileId}&sz=w1000` : "./MBR.png",
                 time: `${new Date(cur?.start.dateTime).toLocaleTimeString().replace(':','').slice(0,4)} - ${new Date(cur?.end.dateTime).toLocaleTimeString().replace(':','').slice(0,4)}`
             })
         } catch (e) {
