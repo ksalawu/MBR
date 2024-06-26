@@ -9,7 +9,7 @@ static_sites:
     value: /
   - key: REACT_APP_STREAM_URL
     scope: BUILD_TIME
-    value: https://play.musicboxradio.co.uk:8028/radio?type=http&nocache=26244
+    value: https://play.musicboxradio.co.uk/listen/stream/1
   - key: REACT_APP_CALENDAR_URL
     scope: BUILD_TIME
     value: https://www.googleapis.com/calendar/v3/calendars/musicboxradiouk@gmail.com/events
